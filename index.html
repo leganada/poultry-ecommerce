@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5ef">
+  <meta name="description" content="Healthy, thoughtfully raised heritage chickens from Feathered Fine Poultry Co.">
+  <title>Feathered Fine Poultry Co. | A better kind of backyard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="announcement">A little more joy in every morning <span>·</span> Farm-raised, thoughtfully delivered</div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Feathered Fine Poultry Co. home">
+      <span class="brand-mark" aria-hidden="true">FF</span>
+      <span class="brand-name">FEATHERED FINE <small>POULTRY CO.</small></span>
+    </a>
+    <nav class="primary-nav" aria-label="Main navigation">
+      <a href="#shop">The flock</a>
+      <a href="#our-care">Our care</a>
+    </nav>
+    <div class="header-actions">
+      <button class="admin-switch" id="adminToggle" type="button">Farm manager</button>
+      <button class="icon-button cart-trigger" id="cartOpen" type="button" aria-label="Open shopping cart">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="storefrontView">
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> GOOD STOCK. GOOD SOIL. GOOD EGGS.</p>
+        <h1>A better kind<br>of <em>backyard.</em></h1>
+        <p class="hero-description">Meet the healthy, happy hens that make a little more of every day. Carefully raised, ready for your roost.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#shop">Meet your new flock <span aria-hidden="true">↗</span></a>
+          <span class="hero-note"><span class="note-star">✳</span> Raised with room to roam</span>
+        </div>
+        <div class="hero-footnote"><span class="footnote-rule"></span> SMALL-BATCH POULTRY, BIG-HEARTED CARE</div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="images.jpg6.jpg" alt="A healthy, colorful rooster on a farm">
+        <div class="photo-stamp"><span>HAPPY<br>HENS,</span><strong>BETTER<br>MORNINGS</strong><span class="stamp-sun">✳</span></div>
+        <div class="photo-caption"><span>01 / 03</span><span>Grown with care in the countryside</span></div>
+      </div>
+      <div class="hero-side-label" aria-hidden="true">A GOOD DAY STARTS HERE</div>
+    </section>
+
+    <section class="trust-strip" id="our-care" aria-label="Our care standards">
+      <div class="trust-item"><span class="trust-icon">✳</span><div><strong>Healthy by nature</strong><small>Happy, active heritage breeds</small></div></div>
+      <div class="trust-item"><span class="trust-icon">＋</span><div><strong>Vaccinated & cared for</strong><small>Vetted by our farm team</small></div></div>
+      <div class="trust-item"><span class="trust-icon">⌂</span><div><strong>Farm-fresh delivery</strong><small>Handled with care, always</small></div></div>
+      <div class="trust-signoff">GOOD BIRDS.<br><em>GOOD LIVING.</em></div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE CURRENT FLOCK</p><h2>Find your <em>feathered</em> few.</h2></div>
+        <p class="section-aside">Every bird has a little personality.<br>Here are a few we think you’ll love.</p>
+      </div>
+      <div class="shop-tools">
+        <div class="age-tabs" role="group" aria-label="Filter by chicken age">
+          <button class="age-tab active" data-age="all" type="button">All the flock</button>
+          <button class="age-tab" data-age="4" type="button">4 months</button>
+          <button class="age-tab" data-age="5" type="button">5 months</button>
+          <button class="age-tab" data-age="6" type="button">6+ months</button>
+        </div>
+        <div class="filter-controls">
+          <label class="search-control"><span class="sr-only">Search chickens</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="searchInput" type="search" placeholder="Search the flock"></label>
+          <label class="select-control"><span class="sr-only">Filter by breed</span><select id="breedFilter"><option value="all">Every breed</option></select></label>
+          <label class="price-control"><span>$</span><input id="priceFilter" type="number" min="0" placeholder="Max price" aria-label="Maximum price"></label>
+        </div>
+      </div>
+      <div class="results-line"><span id="resultCount">Showing all available birds</span><label>Sort <select id="sortFilter" aria-label="Sort listings"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Breed name</option></select></label></div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      <div class="empty-state" id="emptyState" hidden><span>✳</span><h3>No birds in this part of the pasture.</h3><p>Try changing your filters to see more of the flock.</p><button class="text-button" id="resetFilters" type="button">Clear all filters ↗</button></div>
+    </section>
+
+    <section class="care-band">
+      <div class="care-image"><img src="images.jpg4.jpg" alt="Two chickens exploring green grass"></div>
+      <div class="care-copy"><p class="eyebrow">A LITTLE ROOM TO ROAM</p><h2>Good care isn’t<br>a <em>season.</em></h2><p>It’s the everyday things: clean water, fresh air, space to scratch, and a watchful eye. We raise our birds like they’re part of the family, because around here, they are.</p><a class="text-button" href="#shop">See who’s ready to roam <span aria-hidden="true">↗</span></a></div>
+      <div class="care-number">02<span>/</span>03</div>
+    </section>
+  </main>
+
+  <main id="adminView" class="admin-view" hidden>
+    <section class="admin-heading"><div><p class="eyebrow">BACK OF THE BARN</p><h1>Flock <em>manager.</em></h1><p>Keep the listings fresh and the inventory in good shape.</p></div><button class="button button-dark" id="addProduct" type="button"><span aria-hidden="true">＋</span> Add a bird</button></section>
+    <section class="stats-grid" aria-label="Inventory overview">
+      <article class="stat-block"><span>Total listings</span><strong id="statListings">0</strong><small>In the current flock</small></article>
+      <article class="stat-block"><span>Stock value</span><strong id="statValue">$0</strong><small>Based on current inventory</small></article>
+      <article class="stat-block stat-alert"><span>Out of stock</span><strong id="statOut">0</strong><small>Listings need a restock</small></article>
+    </section>
+    <section class="inventory-section"><div class="inventory-title"><h2>All listings</h2><span id="adminCount">0 products</span></div><div class="inventory-wrap"><table class="inventory-table"><thead><tr><th>Listing</th><th>Age</th><th>Price</th><th>In stock</th><th>Inventory value</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="inventoryBody"></tbody></table></div><div class="admin-empty" id="adminEmpty" hidden>No listings yet. Add your first bird to get started.</div></section>
+  </main>
+
+  <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark">FF</span><span class="brand-name">FEATHERED FINE <small>POULTRY CO.</small></span></a><span>GOOD BIRDS. GOOD LIVING.</span><span>© 2026 Feathered Fine Poultry Co.</span></footer>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow">YOUR LITTLE FLOCK</p><h2>Your basket <span id="drawerCount">(0)</span></h2></div><button class="icon-button close-overlay" type="button" aria-label="Close cart">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty"><span class="empty-illustration">✳</span><h3>Room for one more?</h3><p>Your basket’s waiting for its first feathered friend.</p><button class="button button-dark close-overlay" type="button">Browse the flock <span aria-hidden="true">↗</span></button></div>
+    <div class="cart-summary" id="cartSummary"><div class="summary-row"><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div><div class="summary-row"><span>Farm-fresh delivery</span><strong id="cartShipping">$0</strong></div><p class="shipping-note">Delivery is complimentary on orders over $120.</p><div class="summary-row total-row"><span>Estimated total</span><strong id="cartTotal">$0</strong></div><button class="button button-dark checkout-trigger" id="checkoutOpen" type="button">Continue to checkout <span aria-hidden="true">↗</span></button><p class="checkout-note">Secure checkout · Shipping details next</p></div>
+  </aside>
+
+  <section class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle" hidden><button class="icon-button modal-close" type="button" aria-label="Close details">×</button><div id="productModalContent"></div></section>
+  <section class="modal form-modal" id="productFormModal" role="dialog" aria-modal="true" aria-labelledby="productFormTitle" hidden><button class="icon-button modal-close" type="button" aria-label="Close form">×</button><p class="eyebrow">FLOCK INVENTORY</p><h2 id="productFormTitle">Add a <em>bird.</em></h2><form id="productForm" class="form-grid">
+    <input type="hidden" id="productId">
+    <label>Listing name<input id="productName" name="name" required maxlength="80" placeholder="e.g. The Sunday Sister"></label>
+    <label>Breed<input id="productBreed" name="breed" required maxlength="60" placeholder="e.g. Speckled Sussex"></label>
+    <label>Age category<select id="productAge" name="age" required><option value="4">4 months</option><option value="5">5 months</option><option value="6">6 months and older</option></select></label>
+    <label>Price (USD)<input id="productPrice" name="price" type="number" min="0.01" step="0.01" required></label>
+    <label>Stock count<input id="productStock" name="stock" type="number" min="0" step="1" required></label>
+    <label>Image URL<input id="productImage" name="image" type="text" placeholder="images.jpg4.jpg or https://..."></label>
+    <label class="full-field">Description<textarea id="productDescription" name="description" rows="3" required maxlength="500"></textarea></label>
+    <div class="form-actions full-field"><button class="button button-outline modal-cancel" type="button">Cancel</button><button class="button button-dark" type="submit">Save listing <span aria-hidden="true">↗</span></button></div>
+  </form></section>
+  <section class="modal checkout-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle" hidden><button class="icon-button modal-close" type="button" aria-label="Close checkout">×</button><div id="checkoutContent"><p class="eyebrow">JUST A FEW DETAILS</p><h2 id="checkoutTitle">Almost <em>home.</em></h2><div class="checkout-layout"><form id="checkoutForm" class="checkout-form">
+    <h3>Delivery details</h3><label>Full name<input name="fullName" autocomplete="name" required></label><label>Email address<input name="email" type="email" autocomplete="email" required></label><label>Street address<input name="address" autocomplete="street-address" required></label><div class="form-grid"><label>City<input name="city" autocomplete="address-level2" required></label><label>ZIP code<input name="zip" autocomplete="postal-code" required></label></div><p class="demo-note">Demo checkout only. No payment will be collected.</p><button class="button button-dark" type="submit">Place demo order <span aria-hidden="true">↗</span></button>
+    </form><div class="checkout-order"><h3>Order summary</h3><div id="checkoutItems"></div><div class="summary-row"><span>Subtotal</span><strong id="checkoutSubtotal">$0</strong></div><div class="summary-row"><span>Farm-fresh delivery</span><strong id="checkoutShipping">$0</strong></div><div class="summary-row total-row"><span>Estimated total</span><strong id="checkoutTotal">$0</strong></div></div></div></div></section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
